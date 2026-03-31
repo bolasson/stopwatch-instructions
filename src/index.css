@@ -1,0 +1,27 @@
+:root {
+  --primary:   #044852;
+  --secondary: #974833;
+  --accent:    #afdde7;
+  --text:      #1e2d3a;
+  --muted:     #6b7f8a;
+  --border:    rgba(4,72,82,0.13);
+  --bg:        #f7f8f8;
+  --header-h:  58px;
+  --toc-w:     260px;
+  --col:       680px;
+}
+
+* { box-sizing: border-box; }
+html, body { 
+  margin: 0; 
+  min-height: 100%; 
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}

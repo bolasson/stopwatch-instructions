@@ -1,0 +1,23 @@
+.callout-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+  display: grid;
+  gap: 8px;
+}
+
+.callout-item {
+  padding: 12px 16px 12px 18px;
+  border-left: 3px solid var(--accent);
+  background: rgba(4,72,82,0.03);
+  border-radius: 0 8px 8px 0;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+.callout-item strong {
+  display: inline;
+  color: var(--primary);
+  font-size: 0.9rem;
+  margin-bottom: 0;
+}

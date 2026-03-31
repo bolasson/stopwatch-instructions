@@ -1,0 +1,38 @@
+.checklist-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 140ms;
+}
+
+.checklist-item:hover {
+  background: rgba(4,72,82,0.03);
+}
+
+.checklist-item.checked {
+  opacity: 0.52;
+}
+
+.check-box {
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  border-radius: 5px;
+  border: 1.5px solid rgba(4,72,82,0.3);
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 140ms;
+}
+
+.checklist-item.checked .check-box {
+  background: var(--primary);
+  border-color: var(--primary);
+}

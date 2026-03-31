@@ -1,0 +1,54 @@
+.code-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.copy-btn {
+  background: #fff;
+  border: 1px solid var(--border);
+  color: var(--primary);
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  outline: none;
+  transition: all 140ms;
+}
+
+.copy-btn:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+.code-hint {
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.code-wrap {
+  position: relative;
+  margin: 0;
+  background: #0f172a;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+
+.code-box {
+  max-height: 280px;
+  padding: 14px 18px;
+  overflow-y: auto;
+  overflow-x: auto;
+  font-family: inherit;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
