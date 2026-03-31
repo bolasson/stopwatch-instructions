@@ -1,57 +1,34 @@
-import React from 'react';
+import { memo } from 'react';
 import './GuideSection.css';
-import { ChecklistItem } from '../ui/ChecklistItem';
-import { CalloutList } from '../ui/CalloutList';
-import { CodeBlock } from '../ui/CodeBlock';
+import { SECTION_RENDERERS, resolveAssetPath } from './renderers/RendererRegistry';
 
-export const GuideSection = ({ section }) => {
-  const renderContent = (item) => {
-    switch (item.type) {
-      case 'text':
-        return <p className="step-intro" key={item.body}>{item.body}</p>;
-      case 'callout':
-        return <CalloutList key={item.id || 'callout'} items={item.items} />;
-      case 'code':
-        return <CodeBlock key="code" code={item.items} hint={item.hint || 'Scroll to see full sketch'} />;
-      case 'image':
-        return <img key={item.src} src={item.src} alt={item.alt || 'Step diagram'} className="step-img" />;
-      default:
-        return null;
-    }
-  };
-
+export const GuideSection = memo(({ section }) => {
   if (section.type === 'none') return null;
 
+  const Renderer = SECTION_RENDERERS[section.type];
+
   return (
-    <section id={section.id}>
+    <section id={section.id} className="guide-section">
+      {section.id === 'top' && (
+        <header className="article-header">
+          <h1>How to build a stopwatch with an Arduino Nano</h1>
+        </header>
+      )}
       {section.kicker && <span className="step-kicker">{section.kicker}</span>}
       <h2>{section.title}</h2>
       {section.intro && <p className="step-intro">{section.intro}</p>}
       
-      {section.type === 'checklist' && (
-        <ul className="checklist">
-          {section.items.map((item, i) => (
-            <ChecklistItem key={i}>{item}</ChecklistItem>
-          ))}
-        </ul>
+      {Renderer ? Renderer(section) : <p>Unknown Section Type: {section.type}</p>}
+
+      {section.image && (
+        <img 
+          src={resolveAssetPath(section.image)} 
+          alt={section.title} 
+          className="step-img" 
+        />
       )}
-
-      {section.type === 'callout' && <CalloutList items={section.items} />}
-      
-      {section.type === 'composite' && section.content.map(renderContent)}
-
-      {section.type === 'code' && (
-        <>
-          <CodeBlock code={section.items} hint="Scroll to see full sketch" />
-          {section.footer && <p className="step-intro" style={{ whiteSpace: 'pre-line' }}>{section.footer}</p>}
-        </>
-      )}
-
-      {section.type === 'text_block' && section.content.map((p, i) => (
-        <p key={i} className="step-intro">{p}</p>
-      ))}
-
-      {section.image && <img src={section.image} alt={section.title} className="step-img" />}
     </section>
   );
-};
+});
+
+GuideSection.displayName = 'GuideSection';

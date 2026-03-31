@@ -25,3 +25,12 @@ body {
   line-height: 1.6;
   font-size: 0.95rem;
 }
+
+code {
+  background: rgba(0,0,0,0.06);
+  padding: 0.15rem 0.35rem;
+  border-radius: 4px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.9em;
+  color: var(--secondary);
+}

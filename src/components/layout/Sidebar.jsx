@@ -1,7 +1,7 @@
-import React from 'react';
+import { memo } from 'react';
 import './Sidebar.css';
 
-export const Sidebar = ({ sections, activeId }) => (
+export const Sidebar = memo(({ sections, activeId }) => (
   <aside className="toc-sidebar" aria-label="Table of contents">
     <span className="toc-label">Table of Contents</span>
     <ul>
@@ -17,4 +17,6 @@ export const Sidebar = ({ sections, activeId }) => (
       ))}
     </ul>
   </aside>
-);
+));
+
+Sidebar.displayName = 'Sidebar';
