@@ -123,7 +123,7 @@ export const SECTIONS = [
         ],
       },
       { type: "text", body: "After putting these two wires on, it should look like the diagram below:" },
-      { type: "image", src: "/google-docs-image (1).png", alt: "Power and Ground wiring" }
+      { type: "image", src: "/newArduino_00.png", alt: "Power and Ground wiring" }
     ],
   },
   {
@@ -143,7 +143,7 @@ export const SECTIONS = [
           { body: "Backlight Power: The last step is to connect the A pin on the LCD Screen to a 1k Ohm resistor and connect the other end of the resistor to the power bus using another jumper wire." },
         ],
       },
-      { type: "image", src: "/google-docs-image (2).png", alt: "LCD wiring diagram" },
+      { type: "image", src: "/newArduino_01.png", alt: "LCD Power wiring diagram" },
       { type: "text", body: "In order to connect the LCD Screen to the Arduino Nano, 6 jumper wires will be used. It is recommended that each of these jumper wires are different colors. Keeping same colored wires apart makes it much easier to keep track of which wire goes to which pin and debug." },
       {
         type: "callout",
@@ -157,6 +157,7 @@ export const SECTIONS = [
         ],
       },
       { type: "text", body: "This completes the connection between the Arduino and the LCD Screen and they can now communicate." },
+      { type: "image", src: "/newArduino_02.png", alt: "LCD Communication wiring diagram" },
     ],
   },
   {
@@ -186,7 +187,7 @@ export const SECTIONS = [
         ],
       },
       { type: "text", body: "The LCD screen should now be able to change brightness by turning the potentiometer. You can test this by turning on the arduino and then turning the potentiometer back and forth. You should see white squares appear and disappear on the screen." },
-      { type: "image", src: "/google-docs-image (3).png", alt: "Potentiometer wiring diagram" },
+      { type: "image", src: "/newArduino_03.png", alt: "Potentiometer wiring diagram" },
     ],
   },
   {
@@ -222,7 +223,7 @@ export const SECTIONS = [
         ],
       },
       { type: "text", body: "Now, each button input is marked in a HIGH state by the Arduino. Pressing a button connects that input to ground, which changes the state to LOW. The code detects that change and treats it as a command to change the stopwatch’s state." },
-      { type: "image", src: "/google-docs-image (4).png", alt: "Complete hardware build including buttons" },
+      { type: "image", src: "/newArduino_04.png", alt: "Complete hardware build including buttons" },
     ],
   },
   {
