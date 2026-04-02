@@ -117,15 +117,15 @@ export const SECTIONS = [
         ],
       },
       { type: "text", body: "Putting the Nano on the breadboard: Take the Nano and ensure it’s placed so that its VIN pin is inserted in the breadboard (`H49`), the TX1 pin into (`H35`)." },
+      { type: "text", body: "Your board should look like this at the end of these steps:" },
+      { type: "image", src: "/newArduino_00.png", alt: "Power and Ground wiring" },
       {
         type: "callout",
         items: [
           { body: "Connecting Nano to Power: Wire 1 wire from (`I52`), which is next to the 5v pin on the nano, to the top + (red) bus. This ensures that the nano gives power to anything that is wired to the + bus." },
           { body: "Connecting Nano to Ground: Wire 1 wire from (`I50`), next to the ground pin (GND) on the nano, to the top - (blue) bus. This grounds the - bus and anything connected to it will be grounded." }
         ],
-      },
-      { type: "text", body: "After putting these two wires on, it should look like the diagram below:" },
-      { type: "image", src: "/newArduino_00.png", alt: "Power and Ground wiring" }
+      }
     ],
   },
   {
@@ -139,6 +139,8 @@ export const SECTIONS = [
       { type: "text", body: "Orientation: Orient the LCD Screen in your hand so that the screen is facing towards you and the pins and their corresponding labels are furthest from your body." },
       { type: "text", body: "Inserting LCD into Breadboard: With the LCD correctly oriented in your hand, find the leftmost pin labeled VSS, and insert it into `A26`. Keeping the LCD Screen parallel to the buses on the breadboard nearest you, the rest of the pins on the LCD should fit into their correct places as you place VSS into `A26`." },
       { type: "text", body: "For the LCD Screen to function at all, it must be powered. This can be done by using the power and ground buses set up previously to provide backlight so text and displays can be seen clearly." },
+      { type: "text", body: "Your board should look like this at the end of these steps:" },
+      { type: "image", src: "/newArduino_01.png", alt: "LCD Powering diagram" },
       {
         type: "callout",
         items: [
@@ -149,8 +151,6 @@ export const SECTIONS = [
           { body: "Backlight to Power: Connect `C40` to `G40` using a 1k Ohm resistor. Then connect `H40` to the power (positive/red) bus with a wire. This connects the A pin on the LCD providing power for the backlight so the display can be seen." },
         ],
       },
-      { type: "text", body: "It should look something like this…" },
-      { type: "image", src: "/newArduino_01.png", alt: "LCD Powering diagram" },
     ],
   },
   {
@@ -162,6 +162,8 @@ export const SECTIONS = [
     type: "composite",
     content: [
       { type: "text", body: "It is recommended that each of these jumper wires are different colors. Keeping same colored wires apart makes it much easier to keep track of which wire goes to which pin between the various components and debug. The order of the pins is very important, ensure that the pins you have connected match the code exactly. Your connections can be verified using the wiring diagram below." },
+      { type: "text", body: "Your board should look like this at the end of these steps:" },
+      { type: "image", src: "/newArduino_02.png", alt: "LCD Data wiring diagram" },
       {
         type: "callout",
         items: [
@@ -173,8 +175,6 @@ export const SECTIONS = [
           { body: "Connect `C39` and `C58` with a wire. This connects the D7 pin on the LCD to pin D7 on the Arduino." },
         ],
       },
-      { type: "text", body: "This completes the connection between the Arduino and the LCD Screen and they can now communicate." },
-      { type: "image", src: "/newArduino_02.png", alt: "LCD Data wiring diagram" },
     ],
   },
   {
@@ -195,6 +195,8 @@ export const SECTIONS = [
         ],
       },
       { type: "text", body: "Now that the potentiometer is in its place, the next step is to connect the pins to what they’re supposed to connect to." },
+      { type: "text", body: "Your board should look like this at the end of these steps:" },
+      { type: "image", src: "/newArduino_03.png", alt: "Potentiometer wiring diagram" },
       {
         type: "callout",
         items: [
@@ -203,8 +205,6 @@ export const SECTIONS = [
           { body: "The output pin needs to connect to the ground voltage we are working with. Connect a wire from `G12` to any spot on the - bus (blue)." },
         ],
       },
-      { type: "text", body: "The LCD screen should now be able to change brightness by turning the potentiometer. You should see white squares appear and disappear on the screen." },
-      { type: "image", src: "/newArduino_03.png", alt: "Potentiometer wiring diagram" },
     ],
   },
   {
@@ -216,6 +216,8 @@ export const SECTIONS = [
     type: "composite",
     content: [
       { type: "text", body: "The first button is the start/stop button and will be connected to Arduino pin 3." },
+      { type: "text", body: "Your board should look like this at the end of these steps:" },
+      { type: "image", src: "/newArduino_04.png", alt: "Complete build diagram" },
       {
         type: "callout",
         items: [
@@ -240,7 +242,6 @@ export const SECTIONS = [
         ],
       },
       { type: "text", body: "Now, each button input is marked in a HIGH state by the Arduino. Pressing a button connects that input to ground, which changes the state to LOW." },
-      { type: "image", src: "/newArduino_04.png", alt: "Complete build diagram" },
     ],
   },
   {
