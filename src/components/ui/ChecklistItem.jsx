@@ -16,7 +16,7 @@ export const ChecklistItem = ({ children }) => {
       <div className="check-box">
         {checked && <Check size={14} color="white" strokeWidth={3} />}
       </div>
-      <span>{children}</span>
+      <div className="checklist-text">{children}</div>
     </motion.li>
   );
 };

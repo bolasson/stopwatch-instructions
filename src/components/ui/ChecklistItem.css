@@ -36,3 +36,11 @@
   background: var(--primary);
   border-color: var(--primary);
 }
+
+.checklist-text {
+  flex: 1;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  /* Ensuring block-level content works inside the checkbox layout */
+  display: block;
+}
