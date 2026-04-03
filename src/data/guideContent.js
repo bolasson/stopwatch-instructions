@@ -1,13 +1,13 @@
 export const MATERIALS = [
-  { text: "An Arduino Nano with headers (off-brand boards may not be compatible with this project)", image: "/components/arduino_nano.png" },
-  { text: "A pre-soldered 16x2 Alphanumeric LCD", image: "/components/lcd.png" },
-  { text: "25 Male to Male jumper wires", image: "/components/jumper_wires.png" },
+  { text: "1 Arduino Nano with headers (pre-soldered)\\nNote: off-brand boards may not be compatible with this project.", image: "/components/arduino_nano.png" },
+  { text: "1 16x2 Alphanumeric LCD with headers (pre-soldered)", image: "/components/lcd.png" },
+  { text: "1 computer with the Arduino IDE installed", image: "/components/ide.png" },
+  { text: "1 USB-C data cable to connect the Arduino Nano (USB-C) to your computer", image: "/components/usb_c.png" },
+  { text: "25 short male-to-male jumper wires", image: "/components/jumper_wires.png" },
   { text: "3 top actuated tactile switches (buttons)", image: "/components/button.png" },
-  { text: "1 10k Multi-Turn Precision 25 Turn Potentiometer (dial)", image: "/components/potentiometer.png" },
-  { text: "1 1k resistor", image: "/components/resistor.png" },
-  { text: "1 bread board", image: "/components/breadboard.png" },
-  { text: "A computer with the Arduino IDE installed.", image: "/components/ide.png" },
-  { text: "A USB-C data cable to connect the Arduino Nano (USB-C) to your computer.", image: "/components/usb_c.png" },
+  { text: "1 10k Ohm Potentiometer (dial)", image: "/components/potentiometer.png" },
+  { text: "1 1k Ohm resistor", image: "/components/resistor.png" },
+  { text: "1 breadboard with 830 tie points", image: "/components/breadboard.png" },
 ];
 
 export const ARDUINO_CODE = `#include <LiquidCrystal.h>
@@ -85,10 +85,9 @@ export const SECTIONS = [
       { type: "text", body: "This guide is for beginner breadboard users to walk you through wiring and programming your first Arduino Nano stopwatch with start/stop, reset, and lap controls displayed on a 16x2 LCD. You won’t need previous experience with a breadboard, coding, or an Arduino, but a brief understanding of how these electronics work (provided in this introduction) will be helpful to you. These instructions are recommended for ages 12 and up and is for anyone interested in learning simple electronics." },
       { type: "text", body: "A diagram for your understanding is provided below." },
       { type: "image", src: "/diagrams/diagram-1.png", alt: "Labeled breadboard diagram showing coordinates and bus lines" },
-      { type: "text", body: "In the top left of the diagram above, notice the letter and number coordinates. Throughout these instructions coordinates will be referred to in letter, number format (for example, see `G12` in the diagram). The long red and blue labeled columns that stretch the full length of the board are called bus lines. The red bus is for power and the blue bus is for ground. A bus line is a continuous strip of metal that shares current and therefore, it doesn’t matter where on the bus you connect a wire as long as it’s connected to the right bus (power and ground must not be conflicted)." },
-      { type: "text", body: "Similarly, a given row is also connected (`A1`, `B1`, `C1`, `D1` and `E1` are connected and separately `F1`, `G1`, `H1`, `I1` and `J1`). See the black lines representing row connections on the right of the diagram. To be safe, it is recommended that you follow the exact coordinates given in these instructions and take extra care when a bus is mentioned to connect it to the right bus." },
-      { type: "text", body: "Breadboards are designed to hold metal tips of wires and other electrical components in place to distribute current to certain outputs such as a screen or LED light based on inputs such as a button or a dial. The Arduino encodes the users’ input into specific instructions in a way that something like an LCD (an alphanumeric screen) can understand. The code for this project that tells the Arduino how to do this is already provided." },
-      { type: "text", body: "For more information on how the project works, read the step introductions as you go. Hopefully, this will inspire you to try more complicated projects in the future, for which, further understanding provided in those step introductions will be helpful. Your task for now however, is to connect the wires and components in such a way that all the components receive power and are hooked up to the right pins. Read the diagrams and steps carefully to make sure everything is placed on the board correctly." },
+      { type: "text", body: "In the top left of the diagram, notice the letter and number coordinates. Throughout these instructions coordinates will be referred to in letter, number format. For example, see `G12` in the diagram. The long red and blue labeled columns that stretch the full length of the board are called bus lines. The red bus is for power and the blue bus is for ground. A bus line is a continuous strip of metal that shares current and therefore, it doesn’t matter where on the bus you connect a wire as long as it’s connected to the right bus (power and ground must not be conflicted). Similarly, a given row is also connected (`A1`, `B1`, `C1`, `D1` and `E1` are connected and separately `F1`, `G1`, `H1`, `I1` and `J1`). See the black lines representing row connections on the right of the diagram. To be safe, it is recommended that you follow the exact coordinates given in these instructions and take extra care when a bus is mentioned to connect it to the right bus." },
+      { type: "text", body: "Breadboards are designed to hold metal tips of wires and other electrical components in place to distribute current to certain outputs such as a screen or LED light based on inputs such as a button or a dial. The Arduino encodes the users’ input into specific instructions in a way that something like an LCD (an alphanumeric screen) can understand. The code for this project that tells the Arduino how to do this is already provided. For more information on how the project works, read the step introductions as you go. Hopefully, this will inspire you to try more complicated projects in the future, for which, further understanding provided in those step introductions will be helpful." },
+      { type: "text", body: "Your task for now however, is to connect the wires and components in such a way that all the components receive power and are hooked up to the right pins (pins are labeled on components such as the Arduino and LCD). Read the diagrams and steps carefully to make sure everything is placed on the board correctly." },
     ],
   },
   {
@@ -105,42 +104,51 @@ export const SECTIONS = [
     sidebarLabel: "Part 1 — Power & Ground",
     kicker: "Part 1",
     title: "Setting up Power and Ground for the board",
-    intro: "This section will require 1 red jumper wire for power and 1 blue jumper wire for ground.",
+    intro: "This section will require 1 Arduino Nano, 1 breadboard, and 2 short jumper wires.",
     type: "composite",
     content: [
-      { type: "text", body: "This step will walk you through how to power and ground the board so that all the electronics are properly powered when we connect them in later steps." },
+      { type: "text", body: "This step will walk you through how to connect the nano to the breadboard, then power and ground the board through the nano so that all the electronics are properly powered when we connect them in later steps." },
+      {
+        type: "info",
+        header: "Learn More: Power and Ground Buses",
+        items: [
+          { body: "it’s important to note how the power and ground buses work on our breadboard. When we connect the nano to the power bus, that means that anything that is also connected down the bus will be connected to the Nano and thus be powered by the 5v connection. The same goes for connecting the board to the Nano’s ground pin." }
+        ],
+      },
       {
         type: "callout",
         variant: "warning",
-        items: [
-          { body: "It’s important to note how the power and ground buses work on our bread board. When we connect the nano to the power bus, that means that anything that is also connected down the line on the bus will be connected to the Nano and thus be powered by the 5v connection." }
-        ],
+        items: [{ body: "Sometimes it is difficult to see the pins on the Arduino Nano. Ensure that the pins are aligned with the correct coordinates, not the edges of the board itself" }]
       },
-      { type: "text", body: "Putting the Nano on the breadboard: Take the Nano and ensure it’s placed so that its VIN pin is inserted in the breadboard (`H49`), the TX1 pin into (`H35`)." },
-      { type: "text", body: "Your board should look like this at the end of these steps:" },
-      { type: "image", src: "/diagrams/diagram-2.png", alt: "Power and Ground wiring" },
       {
         type: "callout",
         items: [
-          { body: "Connecting Nano to Power: Wire 1 wire from (`I52`), which is next to the 5v pin on the nano, to the top + (red) bus. This ensures that the nano gives power to anything that is wired to the + bus." },
-          { body: "Connecting Nano to Ground: Wire 1 wire from (`I50`), next to the ground pin (GND) on the nano, to the top - (blue) bus. This grounds the - bus and anything connected to it will be grounded." }
+          { body: "Putting the Nano on the breadboard: Take the Nano and ensure it’s placed so that its VIN pin is inserted in the breadboard (`H49`), the TX1 pin into (`D49`), the D13 pin into (`H63`), and the D12 pin into (`D63`)" },
+          { body: "Connecting Nano to Power Wire 1 wire from (`I52`) which is next to the 5v pin on the nano, to the top + (red) bus. This ensures that the nano’s 5v gives power to anything that is wired to the + bus." },
+          { body: "Connecting Nano to Ground Wire 1 wire from `I50`, next to the ground pin (GND) on the nano to the top - (blue) bus. This grounds the - bus and anything connected to it will be grounded." }
         ],
-      }
+      },
+      { type: "text", body: "After putting these two wires on, it should look like the diagram below:" },
+      { type: "image", src: "/diagrams/diagram-2.png", alt: "Power and Ground wiring" }
     ],
   },
   {
     id: "part2",
     sidebarLabel: "Part 2 — Powering LCD",
     kicker: "Part 2",
-    title: "Powering the LCD Screen",
-    intro: "To set up the LCD Screen we must first place it into the breadboard.",
+    title: "Part 2: Powering the LCD Screen",
+    intro: "This section will require 1 LCD Screen, 5 short jumper wires, and 1 1k Ohm resistor.",
     type: "composite",
     content: [
+      {
+        type: "callout",
+        variant: "warning",
+        items: [{ body: "Sometimes it is difficult to see the pins on the LCD. Ensure that the pins are aligned with the correct coordinates, not the edges of the LCD Screen" }]
+      },
+      { type: "text", body: "To set up the LCD Screen we must first place it into the breadboard." },
       { type: "text", body: "Orientation: Orient the LCD Screen in your hand so that the screen is facing towards you and the pins and their corresponding labels are furthest from your body." },
       { type: "text", body: "Inserting LCD into Breadboard: With the LCD correctly oriented in your hand, find the leftmost pin labeled VSS, and insert it into `A26`. Keeping the LCD Screen parallel to the buses on the breadboard nearest you, the rest of the pins on the LCD should fit into their correct places as you place VSS into `A26`." },
       { type: "text", body: "For the LCD Screen to function at all, it must be powered. This can be done by using the power and ground buses set up previously to provide backlight so text and displays can be seen clearly." },
-      { type: "text", body: "Your board should look like this at the end of these steps:" },
-      { type: "image", src: "/diagrams/diagram-3.png", alt: "LCD Powering diagram" },
       {
         type: "callout",
         items: [
@@ -151,6 +159,8 @@ export const SECTIONS = [
           { body: "Backlight to Power: Connect `C40` to `G40` using a 1k Ohm resistor. Then connect `H40` to the power (positive/red) bus with a wire. This connects the A pin on the LCD providing power for the backlight so the display can be seen." },
         ],
       },
+      { type: "text", body: "It should look something like this…" },
+      { type: "image", src: "/diagrams/diagram-3.png", alt: "LCD Powering diagram" }
     ],
   },
   {
@@ -158,12 +168,11 @@ export const SECTIONS = [
     sidebarLabel: "Part 3 — Connecting LCD",
     kicker: "Part 3",
     title: "Connecting the LCD Screen to the Arduino",
-    intro: "In order to connect the LCD Screen to the Arduino Nano, 6 jumper wires will be used.",
+    intro: "This section will require 4 short jumper wires and 2 long jumper wires.",
     type: "composite",
     content: [
-      { type: "text", body: "It is recommended that each of these jumper wires are different colors. Keeping same colored wires apart makes it much easier to keep track of which wire goes to which pin between the various components and debug. The order of the pins is very important, ensure that the pins you have connected match the code exactly. Your connections can be verified using the wiring diagram below." },
-      { type: "text", body: "Your board should look like this at the end of these steps:" },
-      { type: "image", src: "/diagrams/diagram-4.png", alt: "LCD Data wiring diagram" },
+      { type: "text", body: "In order to connect the LCD Screen to the Arduino Nano, 6 jumper wires will be used. It is recommended that each of these jumper wires are different colors, if that is not possible, alternating colors works as well. Keeping same colored wires apart makes it much easier to keep track of which wire goes to which pin between the various components and debug." },
+      { type: "text", body: "The order of the pins is very important, ensure that the pins you have connected match the code exactly. Your connections can be verified using the wiring diagram below." },
       {
         type: "callout",
         items: [
@@ -172,9 +181,11 @@ export const SECTIONS = [
           { body: "Connect `C36` and `C61` with a wire. This connects the D4 pin on the LCD to pin D10 on the Arduino." },
           { body: "Connect `C37` and `C60` with a wire. This connects the D5 pin on the LCD to pin D9 on the Arduino." },
           { body: "Connect `C38` and `C59` with a wire. This connects the D6 pin on the LCD to pin D8 on the Arduino." },
-          { body: "Connect `C39` and `C58` with a wire. This connects the D7 pin on the LCD to pin D7 on the Arduino." },
+          { body: "Connect `C39` and `C58` with a wire. This connects the D7 pin on the LCD to pin D7 on the Arduino." }
         ],
       },
+      { type: "text", body: "This completes the connection between the Arduino and the LCD Screen and they can now communicate." },
+      { type: "image", src: "/diagrams/diagram-4.png", alt: "LCD Data wiring diagram" }
     ],
   },
   {
@@ -182,10 +193,12 @@ export const SECTIONS = [
     sidebarLabel: "Part 4 — Potentiometer",
     kicker: "Part 4",
     title: "Connecting the Potentiometer to the LCD screen.",
-    intro: "A potentiometer is an electrical component that allows for us to adjust the voltage going through it. We are going to use a potentiometer to change the brightness of the LCD screen.",
+    intro: "This section will require 1 10k Ohm Potentiometer (dial), 2 short jumper wires, and 1 long jumper wire.",
     type: "composite",
     content: [
-      { type: "text", body: "The first step is to place the potentiometer into the board. Hold the potentiometer with the wires on the bottom and the side with one wire facing away with you." },
+      { type: "text", body: "A potentiometer is an electrical component that allows for us to adjust the voltage going through it. By turning the potentiometer, the voltage is adjusted. We are going to use a potentiometer to change the brightness of the LCD screen." },
+      { type: "text", body: "The first step is to place the potentiometer into the board. If you look at the bottom of the potentiometer, you will see 3 metal wires coming out of it. On one side there will be two wires, and the other there will be 1. Hold the potentiometer with the wires on the bottom and the side with one wire facing away with you. The wire on the front left connects to the input voltage; this will be called the “input pin”. The wire on the front right connects to ground. This will be called the “ground pin”. The wire on the back will output some voltage between these two depending on how you turn the dial on the top. This will be called the “wiper pin”" },
+      { type: "text", body: "To place the potentiometer in the circuit, go through the following instructions:" },
       {
         type: "callout",
         items: [
@@ -195,16 +208,16 @@ export const SECTIONS = [
         ],
       },
       { type: "text", body: "Now that the potentiometer is in its place, the next step is to connect the pins to what they’re supposed to connect to." },
-      { type: "text", body: "Your board should look like this at the end of these steps:" },
-      { type: "image", src: "/diagrams/diagram-5.png", alt: "Potentiometer wiring diagram" },
       {
         type: "callout",
         items: [
-          { body: "The wiper pin needs to connect to the LCD screen to control the brightness. Connect a wire from `D11` to pin Vo on the Arduino." },
-          { body: "The input pin needs to connect to the input voltage we are working with. Connect a wire from `G10` to any spot on the + bus (red)." },
-          { body: "The output pin needs to connect to the ground voltage we are working with. Connect a wire from `G12` to any spot on the - bus (blue)." },
+          { body: "The wiper pin needs to connect to the LCD screen to control the brightness. Connect a wire from `D11` to pin Vo on the Arduino" },
+          { body: "The input pin needs to connect to the input voltage we are working with. Connect a wire from `G10` to any spot on the + bus (red)" },
+          { body: "The output pin needs to connect to the ground voltage we are working with. Connect a wire from `G12` to any spot on the - bus (blue)" },
         ],
       },
+      { type: "text", body: "The LCD screen should now be able to change brightness by turning the potentiometer. You can test this by turning on the arduino and then turning the potentiometer back and forth. As you do this you should see white squares appear and disappear on the screen. Once this is working, the next step is to connect the buttons to actually make the screen react to those inputs." },
+      { type: "image", src: "/diagrams/diagram-5.png", alt: "Potentiometer wiring diagram" }
     ],
   },
   {
@@ -212,36 +225,35 @@ export const SECTIONS = [
     sidebarLabel: "Part 5 — Buttons",
     kicker: "Part 5",
     title: "Setting up the input buttons",
-    intro: "The buttons are like gates that will allow a signal through to the Arduino when the user would like to alter the state of the clock.",
+    intro: "The buttons are like gates that will allow a signal through to the Arduino when the user would like to alter the state of the clock. The pre-written code will interpret this input for you, but your job is to connect the buttons to the ground bus and to the correct pins on the Arduino.",
     type: "composite",
     content: [
       { type: "text", body: "The first button is the start/stop button and will be connected to Arduino pin 3." },
-      { type: "text", body: "Your board should look like this at the end of these steps:" },
-      { type: "image", src: "/diagrams/diagram-6.png", alt: "Complete build diagram" },
       {
         type: "callout",
         items: [
           { body: "Place a button in `E15`, `F15`, `E17`, and `F17` spanning over the gap in the breadboard. Connect the top end (row 15) to ground, bringing a wire from the negative bus to row 15 (`I15` in this example)." },
-          { body: "Now that the button is grounded, connect it to the Arduino input pin labeled D3 by bringing a wire from the button at `G17` to the Arduino at `C54`." },
+          { body: "Now that the button is grounded, connect it to the Arduino input pin labeled D3 by bringing a wire from the button at `G17` to the Arduino at `C54`." }
         ],
       },
-      { type: "text", body: "The second button is the reset button and will be connected to Arduino pin 4." },
+      { type: "text", body: "The second button is the reset button and will be connected to Arduino pin 4" },
       {
         type: "callout",
         items: [
           { body: "Place a button in `E18`, `F18`, `E20`, and `F20` spanning over the gap in the breadboard. Connect the top end (row 18) to ground, bringing a wire from the negative bus to row 18 (`I18` in this example)." },
-          { body: "Now that the button is grounded, connect it to the Arduino input pin labeled D4 by bringing a wire from the button at `G20` to the Arduino at `C55`." },
+          { body: "Now that the button is grounded, connect it to the Arduino input pin labeled D4 by bringing a wire from the button at `G20` to the Arduino at `C55`." }
         ],
       },
-      { type: "text", body: "The third button is the lap button and will be connected to Arduino pin 5." },
+      { type: "text", body: "The third button is the lap button and will be connected to Arduino pin 5" },
       {
         type: "callout",
         items: [
           { body: "Place a button in `E21`, `F21`, `E23`, and `F23` spanning over the gap in the breadboard. Connect the top end (row 21) to ground, bringing a wire from the negative bus to row 21 (`I21` in this example)." },
-          { body: "Now that the button is grounded, connect it to the Arduino input pin labeled D5 by bringing a wire from the button at `G23` to the Arduino at `C56`." },
+          { body: "Now that the button is grounded, connect it to the Arduino input pin labeled D5 by bringing a wire from the button at `G23` to the Arduino at `C56`." }
         ],
       },
-      { type: "text", body: "Now, each button input is marked in a HIGH state by the Arduino. Pressing a button connects that input to ground, which changes the state to LOW." },
+      { type: "text", body: "Now, each button input is marked in a HIGH state by the Arduino. Pressing a button connects that input to ground, which changes the state to LOW. The code detects that change and treats it as a command to change the stopwatch’s state." },
+      { type: "image", src: "/diagrams/diagram-6.png", alt: "Complete build diagram" }
     ],
   },
   {
@@ -249,7 +261,7 @@ export const SECTIONS = [
     sidebarLabel: "Part 6 — Upload Code",
     kicker: "Part 6",
     title: "Uploading code to the Arduino Nano",
-    intro: "The code, or 'sketch', is the final piece that brings your hardware to life. It acts as the brain of the stopwatch.",
+    intro: "The code, or 'sketch', is the final piece that brings your hardware to life. It acts as the brain of the stopwatch: it uses the Arduino’s internal clock to track time, variables to interpret the button signals you wired in the previous step, and functions to display the results on your LCD screen.",
     type: "composite",
     content: [
       {
@@ -272,7 +284,7 @@ export const SECTIONS = [
         items: [
           { body: "Click the checkmark button at the top left of the screen to compile the code." },
           { body: "Click the arrow button at the top left of the screen to push the code to the Arduino." },
-          { body: "Unplug the Arduino." },
+          { body: "Unplug the Arduino" },
         ],
       },
     ],
@@ -280,6 +292,7 @@ export const SECTIONS = [
   {
     id: "conclusion",
     sidebarLabel: "Conclusion",
+    kicker: "Conclusion",
     title: "The final product",
     type: "text_block",
     content: [

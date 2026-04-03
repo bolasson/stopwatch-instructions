@@ -5,6 +5,7 @@ import {
   ImageRenderer, 
   ChecklistRenderer,
   TextBlockRenderer,
+  InfoRenderer,
   resolveAssetPath
 } from './GenericRenderers';
 
@@ -13,6 +14,7 @@ export const CONTENT_ITEM_RENDERERS = {
   callout: (item, index) => <CalloutRenderer key={`callout-${index}`} {...item} index={index} />,
   code: (item, index) => <CodeRenderer key={`code-${index}`} {...item} index={index} />,
   image: (item, index) => <ImageRenderer key={`image-${index}`} {...item} index={index} />,
+  info: (item, index) => <InfoRenderer key={`info-${index}`} {...item} index={index} />,
 };
 
 export const SECTION_RENDERERS = {

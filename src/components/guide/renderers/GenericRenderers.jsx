@@ -5,6 +5,7 @@ import { CalloutList } from '../../ui/CalloutList';
 import { CodeBlock } from '../../ui/CodeBlock';
 import { FormattedText } from '../../ui/FormattedText';
 import { ImageModal } from '../../ui/ImageModal';
+import { ExpandableInfo } from '../../ui/ExpandableInfo';
 
 export const resolveAssetPath = (path) => {
   if (!path) return '';
@@ -20,6 +21,10 @@ export const TextRenderer = memo(({ content, body, index }) => (
   <p className="step-intro" key={`text-${index}`}>
     <FormattedText text={body || content} />
   </p>
+));
+
+export const InfoRenderer = memo(({ header, items, index }) => (
+  <ExpandableInfo key={`info-${index}`} header={header} items={items} />
 ));
 
 export const CalloutRenderer = memo(({ items, variant, index }) => (
