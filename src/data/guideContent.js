@@ -1,13 +1,13 @@
 export const MATERIALS = [
-  { text: "An Arduino Nano with headers (off-brand boards may not be compatible with this project)", image: "/arduino_nano.png" },
-  { text: "A pre-soldered 16x2 Alphanumeric LCD", image: "/lcd.png" },
-  { text: "25 Male to Male jumper wires", image: "/jumper_wires.png" },
-  { text: "3 top actuated tactile switches (buttons)", image: "/button.png" },
-  { text: "1 10k Multi-Turn Precision 25 Turn Potentiometer (dial)", image: "/potentiometer.png" },
-  { text: "1 1k resistor", image: "/resistor.png" },
-  { text: "1 bread board", image: "/breadboard.png" },
-  { text: "A computer with the Arduino IDE installed.", image: "/ide.png" },
-  { text: "A USB-C data cable to connect the Arduino Nano (USB-C) to your computer.", image: "/usb_c.png" },
+  { text: "An Arduino Nano with headers (off-brand boards may not be compatible with this project)", image: "/components/arduino_nano.png" },
+  { text: "A pre-soldered 16x2 Alphanumeric LCD", image: "/components/lcd.png" },
+  { text: "25 Male to Male jumper wires", image: "/components/jumper_wires.png" },
+  { text: "3 top actuated tactile switches (buttons)", image: "/components/button.png" },
+  { text: "1 10k Multi-Turn Precision 25 Turn Potentiometer (dial)", image: "/components/potentiometer.png" },
+  { text: "1 1k resistor", image: "/components/resistor.png" },
+  { text: "1 bread board", image: "/components/breadboard.png" },
+  { text: "A computer with the Arduino IDE installed.", image: "/components/ide.png" },
+  { text: "A USB-C data cable to connect the Arduino Nano (USB-C) to your computer.", image: "/components/usb_c.png" },
 ];
 
 export const ARDUINO_CODE = `#include <LiquidCrystal.h>
@@ -84,7 +84,7 @@ export const SECTIONS = [
     content: [
       { type: "text", body: "This guide is for beginner breadboard users to walk you through wiring and programming your first Arduino Nano stopwatch with start/stop, reset, and lap controls displayed on a 16x2 LCD. You won’t need previous experience with a breadboard, coding, or an Arduino, but a brief understanding of how these electronics work (provided in this introduction) will be helpful to you. These instructions are recommended for ages 12 and up and is for anyone interested in learning simple electronics." },
       { type: "text", body: "A diagram for your understanding is provided below." },
-      { type: "image", src: "/labeled-breadboard.png", alt: "Labeled breadboard diagram showing coordinates and bus lines" },
+      { type: "image", src: "/diagrams/diagram-1.png", alt: "Labeled breadboard diagram showing coordinates and bus lines" },
       { type: "text", body: "In the top left of the diagram above, notice the letter and number coordinates. Throughout these instructions coordinates will be referred to in letter, number format (for example, see `G12` in the diagram). The long red and blue labeled columns that stretch the full length of the board are called bus lines. The red bus is for power and the blue bus is for ground. A bus line is a continuous strip of metal that shares current and therefore, it doesn’t matter where on the bus you connect a wire as long as it’s connected to the right bus (power and ground must not be conflicted)." },
       { type: "text", body: "Similarly, a given row is also connected (`A1`, `B1`, `C1`, `D1` and `E1` are connected and separately `F1`, `G1`, `H1`, `I1` and `J1`). See the black lines representing row connections on the right of the diagram. To be safe, it is recommended that you follow the exact coordinates given in these instructions and take extra care when a bus is mentioned to connect it to the right bus." },
       { type: "text", body: "Breadboards are designed to hold metal tips of wires and other electrical components in place to distribute current to certain outputs such as a screen or LED light based on inputs such as a button or a dial. The Arduino encodes the users’ input into specific instructions in a way that something like an LCD (an alphanumeric screen) can understand. The code for this project that tells the Arduino how to do this is already provided." },
@@ -111,14 +111,14 @@ export const SECTIONS = [
       { type: "text", body: "This step will walk you through how to power and ground the board so that all the electronics are properly powered when we connect them in later steps." },
       {
         type: "callout",
+        variant: "warning",
         items: [
-          { body: "It’s important to note how the power and ground buses work on our bread board. When we connect the nano to the power bus, that means that anything that is also connected down the line on the bus will be connected to the Nano and thus be powered by the 5v connection." },
-          { body: "These steps can be done out of order." }
+          { body: "It’s important to note how the power and ground buses work on our bread board. When we connect the nano to the power bus, that means that anything that is also connected down the line on the bus will be connected to the Nano and thus be powered by the 5v connection." }
         ],
       },
       { type: "text", body: "Putting the Nano on the breadboard: Take the Nano and ensure it’s placed so that its VIN pin is inserted in the breadboard (`H49`), the TX1 pin into (`H35`)." },
       { type: "text", body: "Your board should look like this at the end of these steps:" },
-      { type: "image", src: "/newArduino_00.png", alt: "Power and Ground wiring" },
+      { type: "image", src: "/diagrams/diagram-2.png", alt: "Power and Ground wiring" },
       {
         type: "callout",
         items: [
@@ -140,7 +140,7 @@ export const SECTIONS = [
       { type: "text", body: "Inserting LCD into Breadboard: With the LCD correctly oriented in your hand, find the leftmost pin labeled VSS, and insert it into `A26`. Keeping the LCD Screen parallel to the buses on the breadboard nearest you, the rest of the pins on the LCD should fit into their correct places as you place VSS into `A26`." },
       { type: "text", body: "For the LCD Screen to function at all, it must be powered. This can be done by using the power and ground buses set up previously to provide backlight so text and displays can be seen clearly." },
       { type: "text", body: "Your board should look like this at the end of these steps:" },
-      { type: "image", src: "/newArduino_01.png", alt: "LCD Powering diagram" },
+      { type: "image", src: "/diagrams/diagram-3.png", alt: "LCD Powering diagram" },
       {
         type: "callout",
         items: [
@@ -163,7 +163,7 @@ export const SECTIONS = [
     content: [
       { type: "text", body: "It is recommended that each of these jumper wires are different colors. Keeping same colored wires apart makes it much easier to keep track of which wire goes to which pin between the various components and debug. The order of the pins is very important, ensure that the pins you have connected match the code exactly. Your connections can be verified using the wiring diagram below." },
       { type: "text", body: "Your board should look like this at the end of these steps:" },
-      { type: "image", src: "/newArduino_02.png", alt: "LCD Data wiring diagram" },
+      { type: "image", src: "/diagrams/diagram-4.png", alt: "LCD Data wiring diagram" },
       {
         type: "callout",
         items: [
@@ -196,7 +196,7 @@ export const SECTIONS = [
       },
       { type: "text", body: "Now that the potentiometer is in its place, the next step is to connect the pins to what they’re supposed to connect to." },
       { type: "text", body: "Your board should look like this at the end of these steps:" },
-      { type: "image", src: "/newArduino_03.png", alt: "Potentiometer wiring diagram" },
+      { type: "image", src: "/diagrams/diagram-5.png", alt: "Potentiometer wiring diagram" },
       {
         type: "callout",
         items: [
@@ -217,7 +217,7 @@ export const SECTIONS = [
     content: [
       { type: "text", body: "The first button is the start/stop button and will be connected to Arduino pin 3." },
       { type: "text", body: "Your board should look like this at the end of these steps:" },
-      { type: "image", src: "/newArduino_04.png", alt: "Complete build diagram" },
+      { type: "image", src: "/diagrams/diagram-6.png", alt: "Complete build diagram" },
       {
         type: "callout",
         items: [

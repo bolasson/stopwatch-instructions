@@ -22,8 +22,8 @@ export const TextRenderer = memo(({ content, body, index }) => (
   </p>
 ));
 
-export const CalloutRenderer = memo(({ items, index }) => (
-  <CalloutList key={`callout-${index}`} items={items} />
+export const CalloutRenderer = memo(({ items, variant, index }) => (
+  <CalloutList key={`callout-${index}`} items={items} type={variant || 'step'} />
 ));
 
 export const CodeRenderer = memo(({ content, items, hint, index }) => (
