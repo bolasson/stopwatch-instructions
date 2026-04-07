@@ -1,17 +1,17 @@
 import { memo } from 'react';
 import './Sidebar.css';
 
-export const Sidebar = memo(({ sections, activeId }) => (
+export const Sidebar = memo(({ parts, activeId }) => (
   <aside className="toc-sidebar" aria-label="Table of contents">
     <span className="toc-label">Table of Contents</span>
     <ul>
-      {sections.map((s) => (
-        <li key={s.id}>
+      {parts.map((p) => (
+        <li key={p.id}>
           <a 
-            href={`#${s.id}`} 
-            className={activeId === s.id ? 'active' : ''}
+            href={`#${p.id}`} 
+            className={activeId === p.id ? 'active' : ''}
           >
-            {s.sidebarLabel || s.label || (s.id === 'top' ? 'Overview' : 'Section')}
+            {p.sidebarLabel || p.label || (p.id === 'top' ? 'Overview' : 'Part')}
           </a>
         </li>
       ))}

@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 
-export const useScrollSpy = (sectionIds, offset = 150) => {
-  const [activeId, setActiveId] = useState(sectionIds[0]);
+export const useScrollSpy = (partIds, offset = 150) => {
+  const [activeId, setActiveId] = useState(partIds[0]);
   const isUpdating = useRef(false);
 
   useEffect(() => {
@@ -13,11 +13,11 @@ export const useScrollSpy = (sectionIds, offset = 150) => {
         const isBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 50;
         
         if (isBottom) {
-          setActiveId(sectionIds[sectionIds.length - 1]);
+          setActiveId(partIds[partIds.length - 1]);
         } else {
           const scrollPosition = window.scrollY + offset;
 
-          for (const id of [...sectionIds].reverse()) {
+          for (const id of [...partIds].reverse()) {
             const element = document.getElementById(id);
             if (element && element.offsetTop <= scrollPosition) {
               setActiveId(id);
@@ -31,7 +31,7 @@ export const useScrollSpy = (sectionIds, offset = 150) => {
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [sectionIds, offset]);
+  }, [partIds, offset]);
 
   return activeId;
 };

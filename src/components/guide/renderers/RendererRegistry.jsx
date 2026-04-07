@@ -17,21 +17,21 @@ export const CONTENT_ITEM_RENDERERS = {
   info: (item, index) => <InfoRenderer key={`info-${index}`} {...item} index={index} />,
 };
 
-export const SECTION_RENDERERS = {
-  checklist: (section) => <ChecklistRenderer items={section.items} />,
-  callout: (section) => <CalloutRenderer items={section.items} />,
-  composite: (section) => (
+export const PART_RENDERERS = {
+  checklist: (part) => <ChecklistRenderer items={part.items} />,
+  callout: (part) => <CalloutRenderer items={part.items} />,
+  composite: (part) => (
     <>
-      {section.content.map((item, idx) => {
+      {part.content.map((item, idx) => {
         const Renderer = CONTENT_ITEM_RENDERERS[item.type];
         return Renderer ? Renderer(item, idx) : null;
       })}
     </>
   ),
-  code: (section) => (
-    <CodeRenderer items={section.items} footer={section.footer} index="section-code" />
+  code: (part) => (
+    <CodeRenderer items={part.items} footer={part.footer} index="part-code" />
   ),
-  text_block: (section) => <TextBlockRenderer content={section.content} />,
+  text_block: (part) => <TextBlockRenderer content={part.content} />,
 };
 
 export { resolveAssetPath };

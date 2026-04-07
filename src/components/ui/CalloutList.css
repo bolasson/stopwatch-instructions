@@ -13,6 +13,44 @@
   border-radius: 0 8px 8px 0;
   font-size: 0.9rem;
   color: var(--text);
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  transition: all 140ms;
+}
+
+.callout-item.checkable {
+  cursor: pointer;
+}
+
+.callout-item.checked {
+  opacity: 0.5;
+}
+
+.check-box-wrapper {
+  padding-top: 2px;
+}
+
+.check-box {
+  width: 16px;
+  height: 16px;
+  min-width: 16px;
+  border-radius: 4px;
+  border: 1.5px solid rgba(4,72,82,0.3);
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 140ms;
+}
+
+.callout-item.checked .check-box {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+.callout-content {
+  flex: 1;
 }
 
 .callout-item strong {

@@ -1,26 +1,26 @@
 import './App.css';
 import { Header } from './components/layout/Header';
 import { Sidebar } from './components/layout/Sidebar';
-import { GuideSection } from './components/guide/GuideSection';
+import { GuidePart } from './components/guide/GuidePart';
 import { useScrollSpy } from './hooks/useScrollSpy';
-import { SECTIONS } from './data/guideContent';
+import { PARTS } from './data/guideContent';
 
 const App = () => {
-  const sectionIds = SECTIONS.map(s => s.id);
-  const activeId = useScrollSpy(sectionIds);
+  const partIds = PARTS.map(p => p.id);
+  const activeId = useScrollSpy(partIds);
 
   return (
     <div className="app-container">
       <Header />
       <div className="page-layout">
-        <Sidebar sections={SECTIONS} activeId={activeId} />
+        <Sidebar parts={PARTS} activeId={activeId} />
         <main>
           <article>
-            {SECTIONS.map((section, idx) => (
-              <div key={section.id}>
-                <GuideSection section={section} />
-                {idx < SECTIONS.length - 1 && (
-                  <hr className="section-divider" />
+            {PARTS.map((part, idx) => (
+              <div key={part.id}>
+                <GuidePart part={part} />
+                {idx < PARTS.length - 1 && (
+                  <hr className="part-divider" />
                 )}
               </div>
             ))}

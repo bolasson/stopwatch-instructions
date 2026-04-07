@@ -16,7 +16,7 @@
 }
 
 .checklist-item.checked {
-  opacity: 0.52;
+  opacity: 0.5;
 }
 
 .check-box {
@@ -41,6 +41,18 @@
   flex: 1;
   font-size: 0.95rem;
   line-height: 1.4;
-  /* Ensuring block-level content works inside the checkbox layout */
   display: block;
+}
+
+.checklist-text-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.checklist-info {
+  font-style: italic;
+  font-size: 0.85rem;
+  color: #666;
+  opacity: 0.9;
 }

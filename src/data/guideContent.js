@@ -1,13 +1,14 @@
 export const MATERIALS = [
-  { text: "1 Arduino Nano with headers (pre-soldered)\\nNote: off-brand boards may not be compatible with this project.", image: "/components/arduino_nano.png" },
+  { text: "1 Arduino Nano with headers (pre-soldered)", info: "Note: off-brand boards may not be compatible with this project.", image: "/components/arduino_nano.png" },
   { text: "1 16x2 Alphanumeric LCD with headers (pre-soldered)", image: "/components/lcd.png" },
-  { text: "1 computer with the Arduino IDE installed", image: "/components/ide.png" },
-  { text: "1 USB-C data cable to connect the Arduino Nano (USB-C) to your computer", image: "/components/usb_c.png" },
-  { text: "25 short male-to-male jumper wires", image: "/components/jumper_wires.png" },
+  { text: "16 short male-to-male jumper wires", info: "Note: longer wires can be used, but they will make your breadboard look messier.", image: "/components/jumper_wires.png" },
+  { text: "6 long male-to-male jumper wires", info: "Note: longer wires can be used, but they will make your breadboard look messier.", image: "/components/jumper_wires.png" },
   { text: "3 top actuated tactile switches (buttons)", image: "/components/button.png" },
   { text: "1 10k Ohm Potentiometer (dial)", image: "/components/potentiometer.png" },
   { text: "1 1k Ohm resistor", image: "/components/resistor.png" },
   { text: "1 breadboard with 830 tie points", image: "/components/breadboard.png" },
+  { text: "1 computer with the Arduino IDE installed", image: "/components/ide.png" },
+  { text: "1 USB-C data cable to connect the Arduino Nano (USB-C) to your computer", image: "/components/usb_c.png" }
 ];
 
 export const ARDUINO_CODE = `#include <LiquidCrystal.h>
@@ -74,7 +75,7 @@ void setup() {
 
 void loop() { handleButtons(); updateStopwatch(); drawTopRow(); drawBottomRow(); }`;
 
-export const SECTIONS = [
+export const PARTS = [
   {
     id: "top",
     kicker: "Overview",
@@ -104,10 +105,10 @@ export const SECTIONS = [
     sidebarLabel: "Part 1 — Power & Ground",
     kicker: "Part 1",
     title: "Setting up Power and Ground for the board",
-    intro: "This section will require 1 Arduino Nano, 1 breadboard, and 2 short jumper wires.",
+    intro: "This step will walk you through how to connect the nano to the breadboard, then power and ground the board through the nano so that all the electronics are properly powered when we connect them in later steps.",
+    materials: "This section will require **1 Arduino Nano**, **1 breadboard**, and **2 short jumper wires**.",
     type: "composite",
     content: [
-      { type: "text", body: "This step will walk you through how to connect the nano to the breadboard, then power and ground the board through the nano so that all the electronics are properly powered when we connect them in later steps." },
       {
         type: "info",
         header: "Learn More: Power and Ground Buses",
@@ -123,9 +124,9 @@ export const SECTIONS = [
       {
         type: "callout",
         items: [
-          { body: "Putting the Nano on the breadboard: Take the Nano and ensure it’s placed so that its VIN pin is inserted in the breadboard (`H49`), the TX1 pin into (`D49`), the D13 pin into (`H63`), and the D12 pin into (`D63`)" },
-          { body: "Connecting Nano to Power Wire 1 wire from (`I52`) which is next to the 5v pin on the nano, to the top + (red) bus. This ensures that the nano’s 5v gives power to anything that is wired to the + bus." },
-          { body: "Connecting Nano to Ground Wire 1 wire from `I50`, next to the ground pin (GND) on the nano to the top - (blue) bus. This grounds the - bus and anything connected to it will be grounded." }
+          { body: "**Putting the Nano on the breadboard:** Take the Nano and ensure it’s placed so that its VIN pin is inserted in the breadboard (`H49`), the TX1 pin into (`D49`), the D13 pin into (`H63`), and the D12 pin into (`D63`)" },
+          { body: "**Connecting Nano to Power:** Wire 1 wire from (`I52`) which is next to the 5v pin on the nano, to the top + (red) bus. This ensures that the nano’s 5v gives power to anything that is wired to the + bus." },
+          { body: "**Connecting Nano to Ground:** Wire 1 wire from `I50`, next to the ground pin (GND) on the nano to the top - (blue) bus. This grounds the - bus and anything connected to it will be grounded." }
         ],
       },
       { type: "text", body: "After putting these two wires on, it should look like the diagram below:" },
@@ -137,7 +138,8 @@ export const SECTIONS = [
     sidebarLabel: "Part 2 — Powering LCD",
     kicker: "Part 2",
     title: "Part 2: Powering the LCD Screen",
-    intro: "This section will require 1 LCD Screen, 5 short jumper wires, and 1 1k Ohm resistor.",
+    intro: "To set up the LCD Screen we must first place it into the breadboard.",
+    materials: "This section will require **1 LCD Screen**, **5 short jumper wires**, and **1 1k Ohm resistor**.",
     type: "composite",
     content: [
       {
@@ -145,7 +147,6 @@ export const SECTIONS = [
         variant: "warning",
         items: [{ body: "Sometimes it is difficult to see the pins on the LCD. Ensure that the pins are aligned with the correct coordinates, not the edges of the LCD Screen" }]
       },
-      { type: "text", body: "To set up the LCD Screen we must first place it into the breadboard." },
       { type: "text", body: "Orientation: Orient the LCD Screen in your hand so that the screen is facing towards you and the pins and their corresponding labels are furthest from your body." },
       { type: "text", body: "Inserting LCD into Breadboard: With the LCD correctly oriented in your hand, find the leftmost pin labeled VSS, and insert it into `A26`. Keeping the LCD Screen parallel to the buses on the breadboard nearest you, the rest of the pins on the LCD should fit into their correct places as you place VSS into `A26`." },
       { type: "text", body: "For the LCD Screen to function at all, it must be powered. This can be done by using the power and ground buses set up previously to provide backlight so text and displays can be seen clearly." },
@@ -168,10 +169,11 @@ export const SECTIONS = [
     sidebarLabel: "Part 3 — Connecting LCD",
     kicker: "Part 3",
     title: "Connecting the LCD Screen to the Arduino",
-    intro: "This section will require 4 short jumper wires and 2 long jumper wires.",
+    intro: "In order to connect the LCD Screen to the Arduino Nano, 6 jumper wires will be used.",
+    materials: "This section will require **4 short jumper wires** and **2 long jumper wires**.",
     type: "composite",
     content: [
-      { type: "text", body: "In order to connect the LCD Screen to the Arduino Nano, 6 jumper wires will be used. It is recommended that each of these jumper wires are different colors, if that is not possible, alternating colors works as well. Keeping same colored wires apart makes it much easier to keep track of which wire goes to which pin between the various components and debug." },
+      { type: "text", body: "It is recommended that each of these jumper wires are different colors, if that is not possible, alternating colors works as well. Keeping same colored wires apart makes it much easier to keep track of which wire goes to which pin between the various components and debug." },
       { type: "text", body: "The order of the pins is very important, ensure that the pins you have connected match the code exactly. Your connections can be verified using the wiring diagram below." },
       {
         type: "callout",
@@ -193,10 +195,10 @@ export const SECTIONS = [
     sidebarLabel: "Part 4 — Potentiometer",
     kicker: "Part 4",
     title: "Connecting the Potentiometer to the LCD screen.",
-    intro: "This section will require 1 10k Ohm Potentiometer (dial), 2 short jumper wires, and 1 long jumper wire.",
+    intro: "A potentiometer is an electrical component that allows for us to adjust the voltage going through it. By turning the potentiometer, the voltage is adjusted. We are going to use a potentiometer to change the brightness of the LCD screen.",
+    materials: "This section will require **1 10k Ohm Potentiometer (dial)**, **2 short jumper wires**, and **1 long jumper wire**.",
     type: "composite",
     content: [
-      { type: "text", body: "A potentiometer is an electrical component that allows for us to adjust the voltage going through it. By turning the potentiometer, the voltage is adjusted. We are going to use a potentiometer to change the brightness of the LCD screen." },
       { type: "text", body: "The first step is to place the potentiometer into the board. If you look at the bottom of the potentiometer, you will see 3 metal wires coming out of it. On one side there will be two wires, and the other there will be 1. Hold the potentiometer with the wires on the bottom and the side with one wire facing away with you. The wire on the front left connects to the input voltage; this will be called the “input pin”. The wire on the front right connects to ground. This will be called the “ground pin”. The wire on the back will output some voltage between these two depending on how you turn the dial on the top. This will be called the “wiper pin”" },
       { type: "text", body: "To place the potentiometer in the circuit, go through the following instructions:" },
       {
@@ -210,6 +212,7 @@ export const SECTIONS = [
       { type: "text", body: "Now that the potentiometer is in its place, the next step is to connect the pins to what they’re supposed to connect to." },
       {
         type: "callout",
+        start: 4,
         items: [
           { body: "The wiper pin needs to connect to the LCD screen to control the brightness. Connect a wire from `D11` to pin Vo on the Arduino" },
           { body: "The input pin needs to connect to the input voltage we are working with. Connect a wire from `G10` to any spot on the + bus (red)" },
@@ -281,10 +284,10 @@ export const SECTIONS = [
       },
       {
         type: "callout",
+        start: 6,
         items: [
           { body: "Click the checkmark button at the top left of the screen to compile the code." },
           { body: "Click the arrow button at the top left of the screen to push the code to the Arduino." },
-          { body: "Unplug the Arduino" },
         ],
       },
     ],

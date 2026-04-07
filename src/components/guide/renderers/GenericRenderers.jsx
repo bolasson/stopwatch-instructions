@@ -27,8 +27,8 @@ export const InfoRenderer = memo(({ header, items, index }) => (
   <ExpandableInfo key={`info-${index}`} header={header} items={items} />
 ));
 
-export const CalloutRenderer = memo(({ items, variant, index }) => (
-  <CalloutList key={`callout-${index}`} items={items} type={variant || 'step'} />
+export const CalloutRenderer = memo(({ items, variant, start, index }) => (
+  <CalloutList key={`callout-${index}`} items={items} type={variant || 'step'} start={start} />
 ));
 
 export const CodeRenderer = memo(({ content, items, hint, index }) => (
@@ -58,6 +58,7 @@ export const ChecklistRenderer = memo(({ items }) => {
           const isObject = typeof item === 'object';
           const text = isObject ? item.text : item;
           const image = isObject ? item.image : null;
+          const info = isObject ? item.info : null;
 
           return (
             <ChecklistItem key={i}>
@@ -85,7 +86,14 @@ export const ChecklistRenderer = memo(({ items }) => {
                     </div>
                   </div>
                 )}
-                <FormattedText text={text} />
+                <div className="checklist-text-wrapper">
+                  <FormattedText text={text} />
+                  {info && (
+                    <div className="checklist-info">
+                      <FormattedText text={info} />
+                    </div>
+                  )}
+                </div>
               </div>
             </ChecklistItem>
           );

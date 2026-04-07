@@ -19,6 +19,14 @@ h2 {
   line-height: 1.6;
 }
 
+.part-materials-list {
+  font-style: italic;
+  color: #3a5566;
+  font-size: 0.95rem;
+  margin: 0 0 14px;
+  line-height: 1.6;
+}
+
 .checklist {
   list-style: none;
   padding: 0;
