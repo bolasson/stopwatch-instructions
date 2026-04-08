@@ -1,8 +1,8 @@
 export const MATERIALS = [
   { text: "1 Arduino Nano with headers (pre-soldered)", info: "Note: off-brand boards may not be compatible with this project.", image: "/components/arduino_nano.png" },
   { text: "1 16x2 Alphanumeric LCD with headers (pre-soldered)", image: "/components/lcd.png" },
-  { text: "16 short male-to-male jumper wires", info: "Note: longer wires can be used, but they will make your breadboard look messier.", image: "/components/jumper_wires.png" },
-  { text: "6 long male-to-male jumper wires", info: "Note: longer wires can be used, but they will make your breadboard look messier.", image: "/components/jumper_wires.png" },
+  { text: "16 short male-to-male jumper wires (10cm)", info: "Note: longer wires can be used, but they will make your breadboard look messier.", image: "/components/jumper_wires.png" },
+  { text: "6 long male-to-male jumper wires (20cm)", info: "Note: longer wires can be used, but they will make your breadboard look messier.", image: "/components/jumper_wires.png" },
   { text: "3 top actuated tactile switches (buttons)", image: "/components/button.png" },
   { text: "1 10k Ohm Potentiometer (dial)", image: "/components/potentiometer.png" },
   { text: "1 1k Ohm resistor", image: "/components/resistor.png" },
