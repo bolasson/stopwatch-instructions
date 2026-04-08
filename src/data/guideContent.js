@@ -113,7 +113,7 @@ export const PARTS = [
         type: "info",
         header: "Learn More: Power and Ground Buses",
         items: [
-          { body: "it’s important to note how the power and ground buses work on our breadboard. When we connect the nano to the power bus, that means that anything that is also connected down the bus will be connected to the Nano and thus be powered by the 5v connection. The same goes for connecting the board to the Nano’s ground pin." }
+          { body: "It’s important to note how the power and ground buses work on our breadboard. When we connect the nano to the power bus, that means that anything that is also connected down the bus will be connected to the Nano and thus be powered by the 5v connection. The same goes for connecting the board to the Nano’s ground pin." }
         ],
       },
       {
