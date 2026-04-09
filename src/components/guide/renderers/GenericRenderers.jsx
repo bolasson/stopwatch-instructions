@@ -39,13 +39,16 @@ export const CodeRenderer = memo(({ content, items, hint, index }) => (
   />
 ));
 
-export const ImageRenderer = memo(({ src, alt, index }) => (
-  <img 
-    key={`image-${index}`} 
-    src={resolveAssetPath(src)} 
-    alt={alt || 'Step diagram'} 
-    className="step-img" 
-  />
+export const ImageRenderer = memo(({ src, alt, index, credits="" }) => (
+  <>
+    <img 
+      key={`image-${index}`} 
+      src={resolveAssetPath(src)} 
+      alt={alt || 'Step diagram'} 
+      className="step-img" 
+    />
+    {credits && <p className="image-credits"><i>{credits}</i></p>}
+  </>
 ));
 
 export const ChecklistRenderer = memo(({ items }) => {
